@@ -1,0 +1,9 @@
+#cloud-config
+hostname: cloudhost01
+fqdn: cloudhost01
+ssh_pwauth: True
+password: password
+chpasswd:
+  list: |
+    root:password
+  expire: False
