@@ -28,3 +28,25 @@ bin/cp-disk.sh
 ```
 bin/run.sh
 ```
+
+# Related links
+- https://arstechnica.com/civis/viewtopic.php?t=1473419
+```
+./qemu-system-aarch64 \
+  -serial stdio \
+  -M virt,highmem=off \
+  -accel hvf \
+  -cpu cortex-a72 \
+  -smp 4 \
+  -m 4096 \
+  -bios /path/to/QEMU_EFI.fd
+  -device virtio-gpu-pci \
+  -display default,show-cursor=on \
+  -device qemu-xhci \
+  -device usb-kbd \
+  -device usb-tablet \
+  -device intel-hda \
+  -device hda-duplex \
+  -drive file=/path/to/Ubuntu.qcow2,if=virtio,cache=writethrough \
+  -cdrom /path/to/focal-desktop-arm64.iso
+  ```
